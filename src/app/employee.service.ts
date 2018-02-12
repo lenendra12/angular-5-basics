@@ -17,12 +17,12 @@ export class EmployeeService {
  }
 
  getData(){
-   return this.http.get('https://api.github.com/users/seeschweiler?page=1&limit=10').map(data => {
+   return this.http.get('https://jsonplaceholder.typicode.com/users').map(data => {
       return this.data1 = data;
    });
  }
 
 
- name = "lenendsfdsfdsfdsdsfdsfdsf dsfdsfdsfdsf dra";
+ name = "I am employee service and i am subscribed in child component";
 
 }

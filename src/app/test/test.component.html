@@ -1,36 +1,61 @@
 <div style="border: 1px solid black; background: orange;color: #fff;padding: 20px;">
-    <h1>Child Component</h1>
-    <h1>hi {{user}}</h1>
+    <h1>*****Child Component*****</h1>
+  <div style="border:1px solid purple;padding: 20px; display: inline-block;">
+    <h1 style="display: inline-block">hi {{user}}</h1><h1 style="display:inline-block;">- This user coming from service subjectBehaviour to component</h1>
+  </div>
+
+  <div style="border:1px solid purple;padding: 20px; display: inline-block;margin-top: 20px;">
     <h1>{{name}}</h1>
+    <p><strong style="color: black;">Change input from parent component to see changes </strong>this is ngModel of parent Component and child receives these using @Input() decorator. </p>
+  </div>
+
+  <div style="border:1px solid purple;padding: 20px; display: inline-block;margin-top: 20px;">
     <h1>{{name1}}</h1>
+  </div>
+
+  <div style="border:1px solid purple;padding: 20px;margin-top: 20px;">
     <ul>
-        <li *ngFor="let d of obj">{{d.name}}</li>
+        <li *ngFor="let d of obj">{{d.name}} - {{d.age}}</li>
     </ul>
+    <p>I am coming from parent component i m the data of parent but used is child using @Input () decorator</p>
+    <p>in parent component sent the object using property binding [obj]="myData"</p>
+  </div>
 
-    <h1 appTest style="display: inline-block;">Test</h1><br>
-    <h1 appTest style="display: inline-block;">dfgdgfdfg</h1><br>
+  <div appTest style="border:1px solid purple;padding: 20px; display: inline-block;margin-top: 20px;">
+    <h1 style="display: inline-block;">Test</h1><br>
+    <h1 style="display: inline-block;">dfgdgfdfg</h1><br>
+    <p>I am custome directive used in child component hove on me as well as click me</p>
+  </div>
 
+  <div style="border:1px solid purple;padding: 20px; display: inline-block;margin-top: 20px;">
     <input type="text" [(ngModel)]="chilData">
     <button (click)="childComp()">Child button</button>
+    <p>I am refer as parent component because when you fill input and hot button then i will emit the data using @Outpue decorator and EventEmitter</p>
+    <p>Note: I am not working because no child for my under</p>
+  </div>
 
-    <div>
-        <table style="border:1px solid black;">
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Location</th>
-                <th>Gender</th>
-                <th>Action</th>
-            </tr>
-            <tr *ngFor="let emp of employee; let i=index;">
-                <td>{{emp.name}}</td>
-                <td>{{emp.age}}</td>
-                <td>{{emp.location}}</td>
-                <td>{{emp.gendar}}</td>
-                <td><button (click)="deleteDate(i)">Delete</button></td>
-            </tr>
-        </table>
-    </div>
+  <div style="border:1px solid purple;padding: 20px; margin-top: 20px;">
+      <table style="border:1px solid black;">
+          <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Location</th>
+              <th>Gender</th>
+              <th>Action</th>
+          </tr>
+          <tr *ngFor="let emp of employee; let i=index;">
+              <td>{{emp.name}}</td>
+              <td>{{emp.age}}</td>
+              <td>{{emp.location}}</td>
+              <td>{{emp.gendar}}</td>
+              <td><button (click)="deleteDate(i)">Delete</button></td>
+          </tr>
+      </table>
+    <p>I am coming from simple json created in same component and i also have delete functionality</p>
+  </div>
 
+  <div style="border:1px solid purple;padding: 20px; display: inline-block;margin-top: 20px;">
     <button (click)="sendData1()">Send data to parent</button>
+    <p>I am responsible to send data from my/child component to parent component </p>
+  </div>
 </div>

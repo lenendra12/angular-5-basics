@@ -1,25 +1,38 @@
 <div style="border: 1px solid black; background: orange;color: #fff;padding: 20px;margin-bottom: 20px;">
-    <h1>Parent Component</h1>
-    <h1>hi {{user}}</h1>
-    <input type="text" [(ngModel)]="editUser">
-    <button (click)="sendToApi()">sendToApi</button><br><br>
+    <h1>*****Parent Component*******</h1>
+    <h1 style="display: inline-block;">{{newDate }}</h1> <h1 style="display: inline-block;"> - This is date coming from component</h1><br>
 
+    <div style="border:1px solid purple;padding: 20px; display: inline-block;">
+      <h1 style="display: inline-block;">hi {{user}}</h1> <h1 style="display: inline-block;"> - This user coming from service subjectBehaviour to component</h1><br><br>
+      <input type="text" [(ngModel)]="editUser">
+      <button (click)="sendToApi()">sendToApi</button><br><br>
+      <p>This is also a service subjectbehavoiur i read input value and send to service then service return the newly changed name and show in user upper line.</p>
+    </div>
+
+
+  <div style="border:1px solid purple;padding: 20px;margin-top: 30px;">
     <input type="text" [(ngModel)]="myModel"/>
     <button (click)="myName()">ClickMe</button>
     <h1>{{myModel}}</h1>
+    <p>Two way binding and event handling and also send the ngModel to child component using properties and receives in child component using @Input() decorator</p>
+  </div>
+
+  <div appTest style="border:1px solid purple;padding: 20px;margin-top: 30px;">
+    <!--<input type="text" [(ngModel)]="nameVali">-->
+    <!--<button (click)="onClickName()">NameVali</button>-->
+    <p>This is custom directive onhover change color and on click change background color</p>
+  </div>
+
+  <div *ngIf="childData.length" style="border:1px solid purple;padding: 20px; display: inline-block;margin-top: 30px;">
+    <ul *ngFor="let d of childData">
+      <li>{{d.name}}</li>
+      <li>{{d.phone}}</li>
+      <li>{{d.email}}</li>
+    </ul>
+    <p>This data coming from child component using @Output decorator and EventEmitter </p>
+  </div>
+
 </div>
 
-<div appTest>
-  <input type="text" [(ngModel)]="nameVali">
-  <button (click)="onClickName()">NameVali</button>
-</div>
-
-<div>
-  <ul *ngFor="let d of childData">
-    <li>{{d.bio}}</li>
-    <li>{{d.company}}</li>
-    <li>{{d.created_at}}</li>
-  </ul>
-</div>
 
 <app-test name="{{myModel}}" [obj]="myData" (sendData)="changeMe($event)"></app-test>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EmployeeService } from '../employee.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,13 @@ myData = [
 ];
 
 childData = [];
+date = new Date();
+newDate:string;
 
-constructor(private _employeeService: EmployeeService){ }
+constructor(private _employeeService: EmployeeService){
+ this.newDate = moment(this.date).format('DD-MM-YYYY')
+  console.log(this.newDate)
+}
 
 myName(){
     alert(this.myModel)
@@ -27,20 +33,17 @@ myName(){
 
 
 ngOnInit(){
-  // this.checkDatafromchild()
   this._employeeService.cast.subscribe(user => this.user = user);
 }
 
 
 changeMe(e){
-  this.childData.push(e)
+  this.childData = e
+  console.log(this.childData)
 }
 
 sendToApi(){
   this._employeeService.editUser(this.editUser)
 }
 
-  // checkDatafromchild(e){
-  //   alert(JSON.stringify(e))
-  // }
 }
