@@ -1,0 +1,25 @@
+<div style="border: 1px solid black; background: orange;color: #fff;padding: 20px;margin-bottom: 20px;">
+    <h1>Parent Component</h1>
+    <h1>hi {{user}}</h1>
+    <input type="text" [(ngModel)]="editUser">
+    <button (click)="sendToApi()">sendToApi</button><br><br>
+
+    <input type="text" [(ngModel)]="myModel"/>
+    <button (click)="myName()">ClickMe</button>
+    <h1>{{myModel}}</h1>
+</div>
+
+<div appTest>
+  <input type="text" [(ngModel)]="nameVali">
+  <button (click)="onClickName()">NameVali</button>
+</div>
+
+<div>
+  <ul *ngFor="let d of childData">
+    <li>{{d.bio}}</li>
+    <li>{{d.company}}</li>
+    <li>{{d.created_at}}</li>
+  </ul>
+</div>
+
+<app-test name="{{myModel}}" [obj]="myData" (sendData)="changeMe($event)"></app-test>

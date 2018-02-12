@@ -1,0 +1,36 @@
+<div style="border: 1px solid black; background: orange;color: #fff;padding: 20px;">
+    <h1>Child Component</h1>
+    <h1>hi {{user}}</h1>
+    <h1>{{name}}</h1>
+    <h1>{{name1}}</h1>
+    <ul>
+        <li *ngFor="let d of obj">{{d.name}}</li>
+    </ul>
+
+    <h1 appTest style="display: inline-block;">Test</h1><br>
+    <h1 appTest style="display: inline-block;">dfgdgfdfg</h1><br>
+
+    <input type="text" [(ngModel)]="chilData">
+    <button (click)="childComp()">Child button</button>
+
+    <div>
+        <table style="border:1px solid black;">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Location</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let emp of employee; let i=index;">
+                <td>{{emp.name}}</td>
+                <td>{{emp.age}}</td>
+                <td>{{emp.location}}</td>
+                <td>{{emp.gendar}}</td>
+                <td><button (click)="deleteDate(i)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <button (click)="sendData1()">Send data to parent</button>
+</div>
