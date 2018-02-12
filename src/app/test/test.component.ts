@@ -10,20 +10,21 @@ import {Observable} from 'rxjs/Observable';
 })
 export class TestComponent implements OnInit {
 
-@Input() name: string;
+@Input() nameL: string;
 @Input() obj:any = Array;
 
 @Output() inputData = new EventEmitter();
 @Output() sendData = new EventEmitter();
 
 data:any = [];
+emp:any = {};
 user: string;
 name1: string;
 employee = [
-    {name:"lenendra",age:23,location:"pune",gendar:"M"},
-    {name:"shubhangi",age:25,location:"pune",gendar:"F"},
-    {name:"aashi",age:20,location:"MP",gendar:"F"},
-    {name:"vijay",age:23,location:"pune",gendar:"M"},
+    {ename:"lenendra",age:23,location:"pune",gendar:"M"},
+    {ename:"shubhangi",age:25,location:"pune",gendar:"F"},
+    {ename:"aashi",age:20,location:"MP",gendar:"F"},
+    {ename:"vijay",age:23,location:"pune",gendar:"M"},
 ]
 
 chilData:string ="";
@@ -56,6 +57,17 @@ test(){
 
 sendData1(){
     this.sendData.emit(this.data)
+}
+
+onClickAdd(){
+  for (var x in this.emp) {
+    this.employee.push(this.emp)
+    this.emp = {}
+    return false;
+  }
+  alert("please fill all the fields")
+  return true;
+
 }
 
 

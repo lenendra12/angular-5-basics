@@ -5,7 +5,7 @@
   </div>
 
   <div style="border:1px solid purple;padding: 20px; display: inline-block;margin-top: 20px;">
-    <h1>{{name}}</h1>
+    <h1>{{nameL}}</h1>
     <p><strong style="color: black;">Change input from parent component to see changes </strong>this is ngModel of parent Component and child receives these using @Input() decorator. </p>
   </div>
 
@@ -44,13 +44,25 @@
               <th>Action</th>
           </tr>
           <tr *ngFor="let emp of employee; let i=index;">
-              <td>{{emp.name}}</td>
+              <td>{{emp.ename}}</td>
               <td>{{emp.age}}</td>
               <td>{{emp.location}}</td>
               <td>{{emp.gendar}}</td>
               <td><button (click)="deleteDate(i)">Delete</button></td>
           </tr>
       </table>
+      <form style="margin-top: 20px;">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="emp.ename" name="ename">
+        <label>Age</label>
+        <input type="text" [(ngModel)]="emp.age" name="age">
+        <label>Location</label>
+        <input type="text" [(ngModel)]="emp.location" name="location">
+        <label>Gender</label>
+        <input type="text" [(ngModel)]="emp.gendar" name="gender">
+        <button (click)="onClickAdd()">Add</button>
+      </form>
+    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     <p>I am coming from simple json created in same component and i also have delete functionality</p>
   </div>
 
